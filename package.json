@@ -1,6 +1,6 @@
 {
   "name": "browser-fingerprint",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Generate a fingerprint of a browser",
   "main": "dist/index.js",
   "scripts": {
