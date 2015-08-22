@@ -4,10 +4,10 @@ Object.defineProperty(exports, '__esModule', {
   value: true
 });
 var pad = function pad(str, size) {
-  return ('000000000' + str).slice(-size);
+  return (new Array(size + 1).join('0') + str).slice(-size);
 };
 
-var count = (function () {
+var globalCount = (function () {
   var count = 0;
   var window = window || global;
 
@@ -18,12 +18,12 @@ var count = (function () {
   return count;
 })();
 
-var globalCount = function globalCount() {
-  return count;
-};
+var navi = navigator.mimeTypes.length + navigator.userAgent.length;
+
+var fingerprint = pad(navi.toString(36) + globalCount.toString(36), 4);
 
 exports['default'] = function () {
-  return pad((navigator.mimeTypes.length + navigator.userAgent.length).toString(36) + globalCount().toString(36), 4);
+  return fingerprint;
 };
 
 module.exports = exports['default'];
