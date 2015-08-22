@@ -1,8 +1,8 @@
 'use strict'
 
-  var collision = false;
+var collision = false;
 
-import fingerprint from './index.js'
+import fingerprint from './dist/index.js'
 
 let test = require('tape')
 
