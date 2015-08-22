@@ -1,22 +1,20 @@
 'use strict'
 
-let pad = (str, size) => ('000000000' + str).slice(-size)
+const pad = (str, size) => (new Array(size + 1).join('0') + str).slice(-size)
 
-let count = (() => {
+const globalCount = (() => {
   let count = 0
-  let window = window || global
+  const window = window || global
 
   for (let i in window) {
     count++
   }
 
-  return count;
+  return count
 }())
 
-let globalCount = () => count
+const navi = navigator.mimeTypes.length + navigator.userAgent.length
 
-export default () => pad(
-  (navigator.mimeTypes.length + navigator.userAgent.length).toString(36) +
-    globalCount().toString(36),
-  4
-)
+const fingerprint = pad(navi.toString(36) + globalCount.toString(36), 4)
+
+export default () => fingerprint
