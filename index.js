@@ -13,7 +13,7 @@ const globalCount = (() => {
   return count
 }())
 
-const navi = navigator.mimeTypes.length + navigator.userAgent.length
+const navi = (navigator.mimeTypes ? navigator.mimeTypes.length : 0) + navigator.userAgent.length
 
 const fingerprint = pad(navi.toString(36) + globalCount.toString(36), 4)
 
